@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 WRONG_SEQ_ERROR_STR = "Sequence must consist only of Letters A, C, G and U and be divisible by 3!"
