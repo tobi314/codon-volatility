@@ -1,5 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.8
 # -*- coding: utf-8 -*-
+
+import matplotlib.pyplot as plt
+import numpy as np
 
 WRONG_SEQ_ERROR_STR = "Sequence must consist only of Letters A, C, G and U and be divisible by 3!"
 
@@ -61,8 +64,12 @@ class Sequence:
 			for codon in chunk:
 				volatility.append(codon.get_volatility())
 			data.append(sum(volatility)/len(volatility))
-		print(data)
+		return data
 
 if __name__ == '__main__':
-	s = Sequence("CGGGCUUGGAGCCCUUGCCGU")
-	s.plot_volatility(2)
+	s = Sequence("AACCGGGCUUGGAGCCCUUGCCGUACGACGUUGACGAUGACAGGUUUGAAGACAGUGUGCAGUAGACAUAUAGCA")
+	data = s.plot_volatility(4); print(data)
+	x = np.array(range(0,len(data)))
+	y = np.array(data)
+	plt.stem(x,y,use_line_collection=True)
+	plt.show()
